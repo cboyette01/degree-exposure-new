@@ -62,7 +62,7 @@ function AIExposureVisualization() {
     const handleItemClick = (item) => {
         if (!list.find(i => i.name === item.name) & list.length < 6) {
             setList([...list, item]);
-            if (searchTerms == '') {
+            if (searchTerms === '') {
                 setSearchTerms(searchTerm);
             }
             else {
