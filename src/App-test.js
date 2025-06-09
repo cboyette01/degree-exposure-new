@@ -113,6 +113,9 @@ function AIExposureVisualization() {
             updateTimeSpentPages(0, timeSpent);
             setTimeSpent(0);
         }
+        else {
+            alert("You need to select 6 occupations before you can move on.");
+        }
     };
 
     const handleNext = () => {
@@ -170,16 +173,24 @@ function AIExposureVisualization() {
                     marginBottom: '30px',
                     color: 'black'
                 }}>
-                    Explore how different occupations may be impacted by generative AI
+                    Explore how different occupations may be impacted by generative AI. Please select the top 6 occupations you would consider for your future career.
                 </p>
             )}
-            {ranked && showTop && (
+            {showSearch && (
                 <p style={{
                     textAlign: 'center',
                     marginBottom: '30px',
                     color: 'black'
                 }}>
-                    Click on an occupation to learn more detailed information about related occupations and fields of study.
+                </p>
+            )}
+            {(ranked || showTop) && (
+                <p style={{
+                    textAlign: 'center',
+                    marginBottom: '30px',
+                    color: 'black'
+                }}>
+                    Click on an occupation to find out information about it.
                 </p>
             )}
 
@@ -204,7 +215,7 @@ function AIExposureVisualization() {
                             marginBottom: '10px',
                             color: 'black'
                         }}>
-                            Use the below search bar to search for your preferred occupations. Please click an occupation to add it to your list of preferred occupations, with the first occupation being your most desired and so on. You must select six occupations to go to the next page.
+                            Use the below search bar to search for your preferred occupations. Please click an occupation to add it to your list of preferred occupations.
                         </label>
                         <div style={{ position: 'relative' }}>
                             <input
@@ -352,15 +363,15 @@ function AIExposureVisualization() {
                             borderRadius: '8px',
                             boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
                         }}>
-                            <label style={{
+                            {/* <label style={{
                                 display: 'block',
                                 fontSize: '16px',
                                 fontWeight: 'bold',
                                 marginBottom: '10px',
                                 color: 'black'
-                            }}>
-                                Preferred Occupations Predicted Effects from Generative AI Ranked from Most Postive to Most Negative
-                            </label>
+                            }}> */}
+                            Here are the occupations you selected. They are ranked from most positive to most negative based on their predicted effects from generative AI.
+                            {/* </label> */}
                             <div>
                                 <ol>
                                     {ranked.map(item => {
@@ -403,15 +414,15 @@ function AIExposureVisualization() {
                             borderRadius: '8px',
                             boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
                         }}>
-                            <label style={{
+                            {/* <label style={{
                                 display: 'block',
                                 fontSize: '16px',
                                 fontWeight: 'bold',
                                 marginBottom: '10px',
                                 color: 'black'
-                            }}>
-                                Top 3 Occupations that have the Most Postive Predicted Effects from Generative AI
-                            </label>
+                            }}> */}
+                                Here are the top 3 occupations most positively impacted in general.
+                            {/* </label> */}
                             <div>
                                 <ol>
                                     <li
@@ -437,15 +448,15 @@ function AIExposureVisualization() {
                                     >{mockData.occupations[6].name}: {mockData.occupations[6].exposure}%</li>
                                 </ol>
                             </div>
-                            <label style={{
+                            {/* <label style={{
                                 display: 'block',
                                 fontSize: '16px',
                                 fontWeight: 'bold',
                                 marginBottom: '10px',
                                 color: 'black'
-                            }}>
-                                Top 3 Occupations that have the Most Negative Predicted Effects from Generative AI
-                            </label>
+                            }}> */}
+                                Here are the top 3 occupations most negatively impacted in general.
+                            {/* </label> */}
                             <div>
                                 <ol>
                                     <li
@@ -585,17 +596,19 @@ function AIExposureVisualization() {
                             border: '1px solid #bfdbfe'
                         }}>
                             <h4 style={{ marginBottom: '10px', fontWeight: 'bold', color: '#1e40af' }}>
-                                Generative AI Impact Analysis
+                                Detailed Information
                             </h4>
                             <p style={{ marginBottom: '10px', lineHeight: '1.5', color: 'black' }}>
+                                {selectedItem.name}s have a projected <strong>
                                 {selectedItem.exposure > 2 ?
-                                    `${selectedItem.name}s have a projected big increase (${selectedItem.exposure}%) in money earned.` :
+                                    `big increase` :
                                     selectedItem.exposure > 0 ?
-                                        `${selectedItem.name}s have a projected small increase (${selectedItem.exposure}%) in money earned.` :
+                                        `small increase` :
                                         selectedItem.exposure < -2 ?
-                                            `${selectedItem.name}s have a projected big decrease (${selectedItem.exposure}%) in money earned.` :
-                                            `${selectedItem.name}s have a projected small decrease (${selectedItem.exposure}%) in money earned.`
+                                            `big decrease` :
+                                            `small decrease`
                                 }
+                                </strong> ({selectedItem.exposure}%) in money earned.
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
                                 {`The potential effects of generative AI on occupations similar to ${selectedItem.name} are shown below.`}
