@@ -11,28 +11,28 @@ const mockData = {
         // { id: 5, name: "Marketing Manager", exposure: 4.2, count: 0, time: 0, major: ["Advertising"], occupation: [4] },
         // { id: 6, name: "Professor", exposure: 1.1, count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
         // { id: 7, name: "Accountant", exposure: 3.9, count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
-        { id: 0, name: "Management", exposure: -1.93, median_salary: "122,090", median_salary_change: '-$2,356', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
-        { id: 1, name: "Business and Financial", exposure: -3.47, median_salary: "80,920", median_salary_change: '-$2,808', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
-        { id: 2, name: "Computer and Mathematical", exposure: -3.47, median_salary: "105,850", median_salary_change: '-$3,673', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
-        { id: 3, name: "Architecture and Engineering", exposure: -1.89, median_salary: "97,310", median_salary_change: '-$1,839', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
-        { id: 4, name: "Science", exposure: -1.91, median_salary: "78,980", median_salary_change: '-$1,509', count: 0, time: 0, major: ["Education"], occupation: [3] },
-        { id: 5, name: "Community and Social Service", exposure: -0.93, median_salary: "57,530", median_salary_change: '-$535', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
-        { id: 6, name: "Legal", exposure: -1.61, median_salary: "99,990", median_salary_change: '-$1,610', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
-        { id: 7, name: "Education and Library", exposure: -1.53, median_salary: "59,220", median_salary_change: '-$906', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
-        { id: 8, name: "Arts, Entertainment, Media", exposure: -2.22, median_salary: "60.140", median_salary_change: '-$1,335', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
-        { id: 9, name: "Healthcare Practitioners", exposure: -2.08, median_salary: "83.090", median_salary_change: '-$1,728', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
-        { id: 10, name: "Healthcare Suppor", exposure: -2.74, median_salary: "37.180", median_salary_change: '-$1,019', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
-        { id: 11, name: "Protective Service", exposure: -3.21, median_salary: "50.580", median_salary_change: '-$1,624', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
-        { id: 12, name: "Food Preparation and Serving", exposure: -5.10, median_salary: "34.130", median_salary_change: '-$1,741', count: 0, time: 0, major: ["Education"], occupation: [3] },
-        { id: 13, name: "Cleaning and Maintenance", exposure: -4.08, median_salary: "36.790", median_salary_change: '-$1,501', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
-        { id: 14, name: "Personal Care and Service", exposure: -2.32, median_salary: "35.110", median_salary_change: '-$815', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
-        { id: 15, name: "Sales and Related", exposure: -5.86, median_salary: "37.460", median_salary_change: '-$2,195', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
-        { id: 16, name: "Office and Administrative", exposure: -8.66, median_salary: "46,320", median_salary_change: '-$4,011', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
-        { id: 17, name: "Farming, Fishing, and Forestry", exposure: -4.11, median_salary: "36,750", median_salary_change: '-$1,510', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
-        { id: 18, name: "Construction and Extraction", exposure: -1.78, median_salary: "58,360", median_salary_change: '-$1,039', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
-        { id: 19, name: "Installation and Repair", exposure: -2.12, median_salary: "58,230", median_salary_change: '-$1,234', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
-        { id: 20, name: "Production", exposure: -6.34, median_salary: "45,960", median_salary_change: '-$2,914', count: 0, time: 0, major: ["Education"], occupation: [3] },
-        { id: 21, name: "Transportation", exposure: -6.88, median_salary: "42,740", median_salary_change: '-$2,941', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        { id: 0, name: "Management", exposure: -1.93, median_salary: "122,090", median_salary_change: '-$2,356', new_median_salary: '119,734', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 1, name: "Business and Financial", exposure: -3.47, median_salary: "80,920", median_salary_change: '-$2,808', new_median_salary: '78,112', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 2, name: "Computer and Mathematical", exposure: -3.47, median_salary: "105,850", median_salary_change: '-$3,673', new_median_salary: '102,177', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 3, name: "Architecture and Engineering", exposure: -1.89, median_salary: "97,310", median_salary_change: '-$1,839', new_median_salary: '95,471', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 4, name: "Life, Physical, and Social Science", exposure: -1.91, median_salary: "78,980", median_salary_change: '-$1,509', new_median_salary: '77,471', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 5, name: "Community and Social Service", exposure: -0.93, median_salary: "57,530", median_salary_change: '-$535', new_median_salary: '56,995', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        { id: 6, name: "Legal", exposure: -1.61, median_salary: "99,990", median_salary_change: '-$1,610', new_median_salary: '98,380', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        { id: 7, name: "Educational Instruction and Library", exposure: -1.53, median_salary: "59,220", median_salary_change: '-$906', new_median_salary: '58,314', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 8, name: "Arts, Design, Entertainment, Sports, and Media", exposure: -2.22, median_salary: "60,140", median_salary_change: '-$1,335', new_median_salary: '58,805', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 9, name: "Healthcare Practitioners and Technical", exposure: -2.08, median_salary: "83,090", median_salary_change: '-$1,728', new_median_salary: '81,362', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 10, name: "Healthcare Support", exposure: -2.74, median_salary: "37,180", median_salary_change: '-$1,019', new_median_salary: '36,161', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 11, name: "Protective Service", exposure: -3.21, median_salary: "50,580", median_salary_change: '-$1,624', new_median_salary: '48,956', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 12, name: "Food Preparation and Serving Related", exposure: -5.10, median_salary: "34,130", median_salary_change: '-$1,741', new_median_salary: '32,389', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 13, name: "Building and Grounds Cleaning and Maintenance", exposure: -4.08, median_salary: "36,790", median_salary_change: '-$1,501', new_median_salary: '35,289', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        { id: 14, name: "Personal Care and Service", exposure: -2.32, median_salary: "35,110", median_salary_change: '-$815', new_median_salary: '34,295', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        { id: 15, name: "Sales and Related", exposure: -5.86, median_salary: "37,460", median_salary_change: '-$2,195', new_median_salary: '35,265', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 16, name: "Office and Administrative Support", exposure: -8.66, median_salary: "46,320", median_salary_change: '-$4,011', new_median_salary: '42,309', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 17, name: "Farming, Fishing, and Forestry", exposure: -4.11, median_salary: "36,750", median_salary_change: '-$1,510', new_median_salary: '35,240', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 18, name: "Construction and Extraction", exposure: -1.78, median_salary: "58,360", median_salary_change: '-$1,039', new_median_salary: '57,321', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 19, name: "Installation, Maintenance, and Repair", exposure: -2.12, median_salary: "58,230", median_salary_change: '-$1,234', new_median_salary: '56,996', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 20, name: "Production", exposure: -6.34, median_salary: "45,960", median_salary_change: '-$2,914', new_median_salary: '43,046', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 21, name: "Transportation and Material Moving", exposure: -6.88, median_salary: "42,740", median_salary_change: '-$2,941', new_median_salary: '39,799', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
     ]
 };
 
@@ -196,14 +196,14 @@ function AIExposureVisualization() {
                 textAlign: 'center',
                 marginBottom: '20px',
                 color: '#333'
-            }}>AI Exposure Explorer</h1>
+            }}>Exploring the Impact of Artificial Intelligence (AI)</h1>
             {showSearch && (
                 <p style={{
                     textAlign: 'center',
                     marginBottom: '30px',
                     color: 'black'
                 }}>
-                    Explore how different occupations may be impacted by generative AI. Please select the top 6 occupations you would consider for your future career.
+                    Explore how different occupations may be impacted by AI. Please select the top 6 occupations you would consider for your future career.
                 </p>
             )}
             {showSearch && (
@@ -303,7 +303,7 @@ function AIExposureVisualization() {
                                             fontWeight: 'normal',
                                             fontSize: '15px'
                                         }}> */}
-                                            {item.name}
+                                        {item.name}
                                         {/* </div> */}
                                     </div>
                                 );
@@ -400,7 +400,7 @@ function AIExposureVisualization() {
                                 marginBottom: '10px',
                                 color: 'black'
                             }}> */}
-                            Here are the occupations you selected. They are ranked from most positive to most negative based on their predicted effects from generative AI.
+                            Here are the occupations you selected. They are ranked from most positive to most negative based on their predicted effects from AI.
                             {/* </label> */}
                             <div>
                                 <ol>
@@ -416,15 +416,6 @@ function AIExposureVisualization() {
                                         )
                                     })}
                                 </ol>
-                                <button
-                                    onClick={handleNext}
-                                    style={{
-                                        cursor: 'pointer',
-                                        float: 'right'
-                                    }}
-                                >
-                                    Next
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -451,7 +442,7 @@ function AIExposureVisualization() {
                                 marginBottom: '10px',
                                 color: 'black'
                             }}> */}
-                                Here are the top 3 occupations most positively impacted in general.
+                            Here are the top 3 occupations most positively impacted in general.
                             {/* </label> */}
                             <div>
                                 <ol>
@@ -485,7 +476,7 @@ function AIExposureVisualization() {
                                 marginBottom: '10px',
                                 color: 'black'
                             }}> */}
-                                Here are the top 3 occupations most negatively impacted in general.
+                            Here are the top 3 occupations most negatively impacted in general.
                             {/* </label> */}
                             <div>
                                 <ol>
@@ -511,24 +502,6 @@ function AIExposureVisualization() {
                                         }}
                                     >{mockData.occupations[third_negative].name}: {mockData.occupations[third_negative].exposure}%</li>
                                 </ol>
-                                <button
-                                    onClick={handleBack}
-                                    style={{
-                                        cursor: 'pointer',
-                                        float: 'left'
-                                    }}
-                                >
-                                    Back
-                                </button>
-                                <button
-                                    onClick={handleEnd}
-                                    style={{
-                                        cursor: 'pointer',
-                                        float: 'right'
-                                    }}
-                                >
-                                    End
-                                </button>
                             </div>
                         </div >
                     </div >
@@ -629,19 +602,19 @@ function AIExposureVisualization() {
                                 Detailed Information
                             </h4>
                             <p style={{ marginBottom: '10px', lineHeight: '1.5', color: 'black' }}>
-                                Workers in the {selectedItem.name} occupation have a projected <strong>
-                                {/* {selectedItem.exposure > 2 ?
+                                Workers in {selectedItem.name} occupations have a projected <strong>
+                                    {/* {selectedItem.exposure > 2 ?
                                     `big increase` :
                                     selectedItem.exposure > 0 ?
                                         `small increase` : */
                                         selectedItem.exposure < -2.53 ?
                                             `big decrease` :
                                             `small decrease`
-                                }
-                                </strong> in money earned. Based on their median salary of ${selectedItem.median_salary}, workers are expected to have a salary decline of {selectedItem.median_salary_change} ({selectedItem.exposure}%).
+                                    }
+                                </strong> in money earned. Based on their current median salary of ${selectedItem.median_salary}, workers are expected to have a salary decline of {selectedItem.median_salary_change} ({selectedItem.exposure}%) to ${selectedItem.new_median_salary}.
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
-                                {`The potential effects of generative AI on occupations similar to ${selectedItem.name} are shown below.`}
+                                {`The potential effects of AI on occupations similar to ${selectedItem.name} occupations are shown below.`}
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
                                 <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
@@ -659,7 +632,7 @@ function AIExposureVisualization() {
                                 </ol>
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
-                                {`The majors most helpful to pursuing a career in ${selectedItem.name} are shown below.`}
+                                {`The majors most helpful to pursuing a career in ${selectedItem.name} occupations are shown below.`}
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
                                 <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
@@ -674,8 +647,57 @@ function AIExposureVisualization() {
                     </div>
                 )
             }
+            {ranked && (
+                <div
+                    style={{
+                        paddingBottom: '20px'
+                    }}
+                >
+                    <button
+                        onClick={handleNext}
+                        style={{
+                            cursor: 'pointer',
+                            float: 'right',
+                            margingBottom: '10px'
+                        }}
+                    >
+                        Next
+                    </button>
+                </div>
+            )}
+            {showTop && (
+                <div 
+                    style={{
+                            paddingBottom: '20px'
+                    }}
+                >
+                    <div>
+                        <button
+                            onClick={handleBack}
+                            style={{
+                                cursor: 'pointer',
+                                float: 'left'
+                            }}
+                        >
+                            Back
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            onClick={handleEnd}
+                            style={{
+                                cursor: 'pointer',
+                                float: 'right'
+                            }}
+                        >
+                            End
+                        </button>
+                    </div>
+                </div>
+            )}
         </div >
     );
+
 }
 
 export default AIExposureVisualization;
