@@ -3,14 +3,36 @@ import React, { useState, useEffect } from 'react';
 // Mock data - in the future this will be replaced with imported CSV data
 const mockData = {
     occupations: [
-        { id: 0, name: "Software Developer", exposure: -2.1, count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
-        { id: 1, name: "Registered Nurse", exposure: -2.4, count: 0, time: 0, major: ["Nursing"], occupation: [0] },
-        { id: 2, name: "Statistician", exposure: -5.3, count: 0, time: 0, major: ["Statistics"], occupation: [1] },
-        { id: 3, name: "Detective", exposure: -1.5, count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
-        { id: 4, name: "Elementary Teacher", exposure: -3.2, count: 0, time: 0, major: ["Education"], occupation: [3] },
-        { id: 5, name: "Marketing Manager", exposure: 4.2, count: 0, time: 0, major: ["Advertising"], occupation: [4] },
-        { id: 6, name: "Professor", exposure: 1.1, count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
-        { id: 7, name: "Accountant", exposure: 3.9, count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        // { id: 0, name: "Software Developer", exposure: -2.1, count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        // { id: 1, name: "Registered Nurse", exposure: -2.4, count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        // { id: 2, name: "Statistician", exposure: -5.3, count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        // { id: 3, name: "Detective", exposure: -1.5, count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        // { id: 4, name: "Elementary Teacher", exposure: -3.2, count: 0, time: 0, major: ["Education"], occupation: [3] },
+        // { id: 5, name: "Marketing Manager", exposure: 4.2, count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        // { id: 6, name: "Professor", exposure: 1.1, count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        // { id: 7, name: "Accountant", exposure: 3.9, count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 0, name: "Management", exposure: -1.93, median_salary: "122,090", median_salary_change: '-$2,356', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 1, name: "Business and Financial", exposure: -3.47, median_salary: "80,920", median_salary_change: '-$2,808', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 2, name: "Computer and Mathematical", exposure: -3.47, median_salary: "105,850", median_salary_change: '-$3,673', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 3, name: "Architecture and Engineering", exposure: -1.89, median_salary: "97,310", median_salary_change: '-$1,839', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 4, name: "Science", exposure: -1.91, median_salary: "78,980", median_salary_change: '-$1,509', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 5, name: "Community and Social Service", exposure: -0.93, median_salary: "57,530", median_salary_change: '-$535', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        { id: 6, name: "Legal", exposure: -1.61, median_salary: "99,990", median_salary_change: '-$1,610', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        { id: 7, name: "Education and Library", exposure: -1.53, median_salary: "59,220", median_salary_change: '-$906', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 8, name: "Arts, Entertainment, Media", exposure: -2.22, median_salary: "60.140", median_salary_change: '-$1,335', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 9, name: "Healthcare Practitioners", exposure: -2.08, median_salary: "83.090", median_salary_change: '-$1,728', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 10, name: "Healthcare Suppor", exposure: -2.74, median_salary: "37.180", median_salary_change: '-$1,019', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 11, name: "Protective Service", exposure: -3.21, median_salary: "50.580", median_salary_change: '-$1,624', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 12, name: "Food Preparation and Serving", exposure: -5.10, median_salary: "34.130", median_salary_change: '-$1,741', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 13, name: "Cleaning and Maintenance", exposure: -4.08, median_salary: "36.790", median_salary_change: '-$1,501', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        { id: 14, name: "Personal Care and Service", exposure: -2.32, median_salary: "35.110", median_salary_change: '-$815', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        { id: 15, name: "Sales and Related", exposure: -5.86, median_salary: "37.460", median_salary_change: '-$2,195', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 16, name: "Office and Administrative", exposure: -8.66, median_salary: "46,320", median_salary_change: '-$4,011', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 17, name: "Farming, Fishing, and Forestry", exposure: -4.11, median_salary: "36,750", median_salary_change: '-$1,510', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 18, name: "Construction and Extraction", exposure: -1.78, median_salary: "58,360", median_salary_change: '-$1,039', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 19, name: "Installation and Repair", exposure: -2.12, median_salary: "58,230", median_salary_change: '-$1,234', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 20, name: "Production", exposure: -6.34, median_salary: "45,960", median_salary_change: '-$2,914', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 21, name: "Transportation", exposure: -6.88, median_salary: "42,740", median_salary_change: '-$2,941', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
     ]
 };
 
@@ -26,6 +48,14 @@ function AIExposureVisualization() {
     const [timeSpentPages, setTimeSpentPages] = useState([0, 0, 0]);
     const [timeSpentDetailStart, setTimeSpentDetailStart] = useState(0);
     const [timeSpentDetail, setTimeSpentDetail] = useState(mockData.occupations);
+
+    // Define top 3 positive and negative occupations
+    const most_positive = 5;
+    const second_positive = 7;
+    const third_positive = 6;
+    const most_negative = 16;
+    const second_negative = 21;
+    const third_negative = 20;
 
     // Set timer
     useEffect(() => {
@@ -265,16 +295,16 @@ function AIExposureVisualization() {
                                             backgroundColor: 'transparent'
                                         }}
                                     >
-                                        <div style={{
+                                        {/* <div style={{
                                             width: '150px',
                                             overflow: 'hidden',
                                             textOverflow: 'ellipsis',
                                             whiteSpace: 'nowrap',
                                             fontWeight: 'normal',
                                             fontSize: '15px'
-                                        }}>
+                                        }}> */}
                                             {item.name}
-                                        </div>
+                                        {/* </div> */}
                                     </div>
                                 );
                             })}
@@ -426,26 +456,26 @@ function AIExposureVisualization() {
                             <div>
                                 <ol>
                                     <li
-                                        onClick={() => handleItemClickDetailed(mockData.occupations[5])}
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[most_positive])}
                                         style={{
                                             cursor: 'pointer',
-                                            backgroundColor: getColor(mockData.occupations[5].exposure)
+                                            backgroundColor: getColor(mockData.occupations[most_positive].exposure)
                                         }}
-                                    >{mockData.occupations[5].name}: {mockData.occupations[5].exposure}%</li>
+                                    >{mockData.occupations[most_positive].name}: {mockData.occupations[most_positive].exposure}%</li>
                                     <li
-                                        onClick={() => handleItemClickDetailed(mockData.occupations[7])}
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[second_positive])}
                                         style={{
                                             cursor: 'pointer',
-                                            backgroundColor: getColor(mockData.occupations[7].exposure)
+                                            backgroundColor: getColor(mockData.occupations[second_positive].exposure)
                                         }}
-                                    >{mockData.occupations[7].name}: {mockData.occupations[7].exposure}%</li>
+                                    >{mockData.occupations[second_positive].name}: {mockData.occupations[second_positive].exposure}%</li>
                                     <li
-                                        onClick={() => handleItemClickDetailed(mockData.occupations[6])}
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[third_positive])}
                                         style={{
                                             cursor: 'pointer',
-                                            backgroundColor: getColor(mockData.occupations[6].exposure)
+                                            backgroundColor: getColor(mockData.occupations[third_positive].exposure)
                                         }}
-                                    >{mockData.occupations[6].name}: {mockData.occupations[6].exposure}%</li>
+                                    >{mockData.occupations[third_positive].name}: {mockData.occupations[third_positive].exposure}%</li>
                                 </ol>
                             </div>
                             {/* <label style={{
@@ -460,26 +490,26 @@ function AIExposureVisualization() {
                             <div>
                                 <ol>
                                     <li
-                                        onClick={() => handleItemClickDetailed(mockData.occupations[2])}
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[most_negative])}
                                         style={{
                                             cursor: 'pointer',
-                                            backgroundColor: getColor(mockData.occupations[2].exposure)
+                                            backgroundColor: getColor(mockData.occupations[most_negative].exposure)
                                         }}
-                                    >{mockData.occupations[2].name}: {mockData.occupations[2].exposure}%</li>
+                                    >{mockData.occupations[most_negative].name}: {mockData.occupations[most_negative].exposure}%</li>
                                     <li
-                                        onClick={() => handleItemClickDetailed(mockData.occupations[4])}
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[second_negative])}
                                         style={{
                                             cursor: 'pointer',
-                                            backgroundColor: getColor(mockData.occupations[4].exposure)
+                                            backgroundColor: getColor(mockData.occupations[second_negative].exposure)
                                         }}
-                                    >{mockData.occupations[4].name}: {mockData.occupations[4].exposure}%</li>
+                                    >{mockData.occupations[second_negative].name}: {mockData.occupations[second_negative].exposure}%</li>
                                     <li
-                                        onClick={() => handleItemClickDetailed(mockData.occupations[1])}
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[third_negative])}
                                         style={{
                                             cursor: 'pointer',
-                                            backgroundColor: getColor(mockData.occupations[1].exposure)
+                                            backgroundColor: getColor(mockData.occupations[third_negative].exposure)
                                         }}
-                                    >{mockData.occupations[1].name}: {mockData.occupations[1].exposure}%</li>
+                                    >{mockData.occupations[third_negative].name}: {mockData.occupations[third_negative].exposure}%</li>
                                 </ol>
                                 <button
                                     onClick={handleBack}
@@ -599,16 +629,16 @@ function AIExposureVisualization() {
                                 Detailed Information
                             </h4>
                             <p style={{ marginBottom: '10px', lineHeight: '1.5', color: 'black' }}>
-                                {selectedItem.name}s have a projected <strong>
-                                {selectedItem.exposure > 2 ?
+                                Workers in the {selectedItem.name} occupation have a projected <strong>
+                                {/* {selectedItem.exposure > 2 ?
                                     `big increase` :
                                     selectedItem.exposure > 0 ?
-                                        `small increase` :
-                                        selectedItem.exposure < -2 ?
+                                        `small increase` : */
+                                        selectedItem.exposure < -2.53 ?
                                             `big decrease` :
                                             `small decrease`
                                 }
-                                </strong> ({selectedItem.exposure}%) in money earned.
+                                </strong> in money earned. Based on their median salary of ${selectedItem.median_salary}, workers are expected to have a salary decline of {selectedItem.median_salary_change} ({selectedItem.exposure}%).
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
                                 {`The potential effects of generative AI on occupations similar to ${selectedItem.name} are shown below.`}
@@ -629,7 +659,7 @@ function AIExposureVisualization() {
                                 </ol>
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
-                                {`The majors most helpful to pursuing a career as a ${selectedItem.name} are shown below.`}
+                                {`The majors most helpful to pursuing a career in ${selectedItem.name} are shown below.`}
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
                                 <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
