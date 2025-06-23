@@ -3,28 +3,36 @@ import React, { useState, useEffect } from 'react';
 // Mock data - in the future this will be replaced with imported CSV data
 const mockData = {
     occupations: [
-        { id: 0, name: "Management", exposure: -1.93, median_salary: "122,090", median_salary_change: '-$2,356', new_median_salary: '119,734', count: 0, time: 0, major: ["Computer and Information Systems","Journalism","Chemical Engineering"], occupation: [1, 2, 15] },
-        { id: 1, name: "Business and Financial", exposure: -3.47, median_salary: "80,920", median_salary_change: '-$2,808', new_median_salary: '78,112', count: 0, time: 0, major: ["Elementary Education","Journalism","Civil Engineering"], occupation: [2, 0, 16] },
-        { id: 2, name: "Computer and Mathematical", exposure: -3.47, median_salary: "105,850", median_salary_change: '-$3,673', new_median_salary: '102,177', count: 0, time: 0, major: ["Accounting","Biology","English Language and Literature"], occupation: [3, 0, 1] },
-        { id: 3, name: "Architecture and Engineering", exposure: -1.89, median_salary: "97,310", median_salary_change: '-$1,839', new_median_salary: '95,471', count: 0, time: 0, major: ["General Engineering","Architecture","Electrical Engineering"], occupation: [19, 2, 18] },
-        { id: 4, name: "Life, Physical, and Social Science", exposure: -1.91, median_salary: "78,980", median_salary_change: '-$1,509', new_median_salary: '77,471', count: 0, time: 0, major: ["Psychology","Biology","Chemistry"], occupation: [7, 5, 3] },
-        { id: 5, name: "Community and Social Service", exposure: -0.93, median_salary: "57,530", median_salary_change: '-$535', new_median_salary: '56,995', count: 0, time: 0, major: ["Educational Careers"], occupation: [10, 9, 7] },
-        { id: 6, name: "Legal", exposure: -1.61, median_salary: "99,990", median_salary_change: '-$1,610', new_median_salary: '98,380', count: 0, time: 0, major: [""], occupation: [1, 16, 5] },
-        { id: 7, name: "Educational Instruction and Library", exposure: -1.53, median_salary: "59,220", median_salary_change: '-$906', new_median_salary: '58,314', count: 0, time: 0, major: ["Educational Careers"], occupation: [5, 10, 2] },
-        { id: 8, name: "Arts, Design, Entertainment, Sports, and Media", exposure: -2.22, median_salary: "60,140", median_salary_change: '-$1,335', new_median_salary: '58,805', count: 0, time: 0, major: ["Commercial Art and Graphic Design", "Communications", "English Language and Literature"], occupation: [2, 0, 15] },
-        { id: 9, name: "Healthcare Practitioners and Technical", exposure: -2.08, median_salary: "83,090", median_salary_change: '-$1,728', new_median_salary: '81,362', count: 0, time: 0, major: ["Marketing and Marketing Research", "Criminal Justice and Fire Protection", "Family and Consumer Sciences"], occupation: [10, 5, 4] },
-        { id: 10, name: "Healthcare Support", exposure: -2.74, median_salary: "37,180", median_salary_change: '-$1,019', new_median_salary: '36,161', count: 0, time: 0, major: ["BioScience Careers", "Captial Area Patient Care Technician", "Medical Assistant","Sports Medicine & Rehabilitation"], occupation: [9, 5, 14] },
-        { id: 11, name: "Protective Service", exposure: -3.21, median_salary: "50,580", median_salary_change: '-$1,624', new_median_salary: '48,956', count: 0, time: 0, major: ["Criminal Justice"], occupation: [5, 21, 6] },
-        { id: 12, name: "Food Preparation and Serving Related", exposure: -5.10, median_salary: "34,130", median_salary_change: '-$1,741', new_median_salary: '32,389', count: 0, time: 0, major: ["Culinary Arts"], occupation: [13, 15, 14] },
-        { id: 13, name: "Building and Grounds Cleaning and Maintenance", exposure: -4.08, median_salary: "36,790", median_salary_change: '-$1,501', new_median_salary: '35,289', count: 0, time: 0, major: ["None"], occupation: [18, 17, 19] },
-        { id: 14, name: "Personal Care and Service", exposure: -2.32, median_salary: "35,110", median_salary_change: '-$815', new_median_salary: '34,295', count: 0, time: 0, major: ["Cosmetology", "Manicurist"], occupation: [10, 5, 9] },
-        { id: 15, name: "Sales and Related", exposure: -5.86, median_salary: "37,460", median_salary_change: '-$2,195', new_median_salary: '35,265', count: 0, time: 0, major: ["Business & Risk Management"], occupation: [1, 16, 0] },
-        { id: 16, name: "Office and Administrative Support", exposure: -8.66, median_salary: "46,320", median_salary_change: '-$4,011', new_median_salary: '42,309', count: 0, time: 0, major: ["Business & Risk Management"], occupation: [1, 15, 0] },
-        { id: 17, name: "Farming, Fishing, and Forestry", exposure: -4.11, median_salary: "36,750", median_salary_change: '-$1,510', new_median_salary: '35,240', count: 0, time: 0, major: ["BioScience Careers"], occupation: [13, 20, 12] },
-        { id: 18, name: "Construction and Extraction", exposure: -1.78, median_salary: "58,360", median_salary_change: '-$1,039', new_median_salary: '57,321', count: 0, time: 0, major: ["Construction Technology"], occupation: [19, 20, 3] },
-        { id: 19, name: "Installation, Maintenance, and Repair", exposure: -2.12, median_salary: "58,230", median_salary_change: '-$1,234', new_median_salary: '56,996', count: 0, time: 0, major: ["Automotive Technology", "Engineering Technologies"], occupation: [18, 3, 20] },
-        { id: 20, name: "Production", exposure: -6.34, median_salary: "45,960", median_salary_change: '-$2,914', new_median_salary: '43,046', count: 0, time: 0, major: ["Precision Machining", "Welding Technology"], occupation: [19, 18, 3] },
-        { id: 21, name: "Transportation and Material Moving", exposure: -6.88, median_salary: "42,740", median_salary_change: '-$2,941', new_median_salary: '39,799', count: 0, time: 0, major: ["Automotive Technology"], occupation: [19, 13, 17] },
+        // { id: 0, name: "Software Developer", exposure: -2.1, count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        // { id: 1, name: "Registered Nurse", exposure: -2.4, count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        // { id: 2, name: "Statistician", exposure: -5.3, count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        // { id: 3, name: "Detective", exposure: -1.5, count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        // { id: 4, name: "Elementary Teacher", exposure: -3.2, count: 0, time: 0, major: ["Education"], occupation: [3] },
+        // { id: 5, name: "Marketing Manager", exposure: 4.2, count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        // { id: 6, name: "Professor", exposure: 1.1, count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        // { id: 7, name: "Accountant", exposure: 3.9, count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 0, name: "Management", exposure: -1.93, median_salary: "122,090", median_salary_change: '-$2,356', new_median_salary: '119,734', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 1, name: "Business and Financial", exposure: -3.47, median_salary: "80,920", median_salary_change: '-$2,808', new_median_salary: '78,112', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 2, name: "Computer and Mathematical", exposure: -3.47, median_salary: "105,850", median_salary_change: '-$3,673', new_median_salary: '102,177', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 3, name: "Architecture and Engineering", exposure: -1.89, median_salary: "97,310", median_salary_change: '-$1,839', new_median_salary: '95,471', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 4, name: "Life, Physical, and Social Science", exposure: -1.91, median_salary: "78,980", median_salary_change: '-$1,509', new_median_salary: '77,471', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 5, name: "Community and Social Service", exposure: -0.93, median_salary: "57,530", median_salary_change: '-$535', new_median_salary: '56,995', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        { id: 6, name: "Legal", exposure: -1.61, median_salary: "99,990", median_salary_change: '-$1,610', new_median_salary: '98,380', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        { id: 7, name: "Educational Instruction and Library", exposure: -1.53, median_salary: "59,220", median_salary_change: '-$906', new_median_salary: '58,314', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 8, name: "Arts, Design, Entertainment, Sports, and Media", exposure: -2.22, median_salary: "60,140", median_salary_change: '-$1,335', new_median_salary: '58,805', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 9, name: "Healthcare Practitioners and Technical", exposure: -2.08, median_salary: "83,090", median_salary_change: '-$1,728', new_median_salary: '81,362', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 10, name: "Healthcare Support", exposure: -2.74, median_salary: "37,180", median_salary_change: '-$1,019', new_median_salary: '36,161', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 11, name: "Protective Service", exposure: -3.21, median_salary: "50,580", median_salary_change: '-$1,624', new_median_salary: '48,956', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 12, name: "Food Preparation and Serving Related", exposure: -5.10, median_salary: "34,130", median_salary_change: '-$1,741', new_median_salary: '32,389', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 13, name: "Building and Grounds Cleaning and Maintenance", exposure: -4.08, median_salary: "36,790", median_salary_change: '-$1,501', new_median_salary: '35,289', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
+        { id: 14, name: "Personal Care and Service", exposure: -2.32, median_salary: "35,110", median_salary_change: '-$815', new_median_salary: '34,295', count: 0, time: 0, major: ["Chinese", "Computer Science"], occupation: [5] },
+        { id: 15, name: "Sales and Related", exposure: -5.86, median_salary: "37,460", median_salary_change: '-$2,195', new_median_salary: '35,265', count: 0, time: 0, major: ["Accounting"], occupation: [6, 0] },
+        { id: 16, name: "Office and Administrative Support", exposure: -8.66, median_salary: "46,320", median_salary_change: '-$4,011', new_median_salary: '42,309', count: 0, time: 0, major: ["Computer Science"], occupation: [7] },
+        { id: 17, name: "Farming, Fishing, and Forestry", exposure: -4.11, median_salary: "36,750", median_salary_change: '-$1,510', new_median_salary: '35,240', count: 0, time: 0, major: ["Nursing"], occupation: [0] },
+        { id: 18, name: "Construction and Extraction", exposure: -1.78, median_salary: "58,360", median_salary_change: '-$1,039', new_median_salary: '57,321', count: 0, time: 0, major: ["Statistics"], occupation: [1] },
+        { id: 19, name: "Installation, Maintenance, and Repair", exposure: -2.12, median_salary: "58,230", median_salary_change: '-$1,234', new_median_salary: '56,996', count: 0, time: 0, major: ["Criminal Justice"], occupation: [2] },
+        { id: 20, name: "Production", exposure: -6.34, median_salary: "45,960", median_salary_change: '-$2,914', new_median_salary: '43,046', count: 0, time: 0, major: ["Education"], occupation: [3] },
+        { id: 21, name: "Transportation and Material Moving", exposure: -6.88, median_salary: "42,740", median_salary_change: '-$2,941', new_median_salary: '39,799', count: 0, time: 0, major: ["Advertising"], occupation: [4] },
     ]
 };
 
@@ -188,14 +196,14 @@ function AIExposureVisualization() {
                 textAlign: 'center',
                 marginBottom: '20px',
                 color: '#333'
-            }}>Exploring the Impact of Artificial Intelligence (AI)</h1>
+            }}>Explore the Impact of Artificial Intelligence (AI)</h1>
             {showSearch && (
                 <p style={{
                     textAlign: 'center',
                     marginBottom: '30px',
                     color: 'black'
                 }}>
-                    Please select the top 6 occupations you would consider for your future career.
+                    Explore how different occupations may be impacted by AI. Please select the top 6 occupations you would consider for your future career.
                 </p>
             )}
             {showSearch && (
@@ -212,7 +220,7 @@ function AIExposureVisualization() {
                     marginBottom: '30px',
                     color: 'black'
                 }}>
-                    Click on an occupation for detailed information.
+                    Click on an occupation to find out information about it.
                 </p>
             )}
 
@@ -237,8 +245,7 @@ function AIExposureVisualization() {
                             marginBottom: '10px',
                             color: 'black'
                         }}>
-                            Please click on an occupation to add it to your list of preferred occupations. <br /><br />
-                            Use the search bar to search for your preferred occupations.
+                            Use the below search bar to search for your preferred occupations. Please click an occupation to add it to your list of preferred occupations.
                         </label>
                         <div style={{ position: 'relative' }}>
                             <input
@@ -393,40 +400,20 @@ function AIExposureVisualization() {
                                 marginBottom: '10px',
                                 color: 'black'
                             }}> */}
-                            <p style={{
-                                textAlign: 'center',
-                                marginBottom: '30px',
-                                color: 'black'
-                            }}>
-                                Here are the occupations you selected. </p>
-
-                            They are ranked from most <strong>positively</strong> impacted to most <strong>negatively</strong> impacted.
+                            Here are the occupations you selected. They are ranked from most positive to most negative based on their predicted effects from AI.
                             {/* </label> */}
                             <div>
-                                <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
-                                    {ranked.map((item, index) => {
+                                <ol>
+                                    {ranked.map(item => {
                                         return (
-                                            <li key={item.name} style={{ listStyleType: 'none', marginBottom: '12px' }}>
-                                                <button onClick={() => handleItemClickDetailed(item)}
-                                                    style={{
-                                                        backgroundColor: getColor(item.exposure),
-                                                        border: '1px solid #ccc',
-                                                        borderRadius: '6px',
-                                                        padding: '10px 16px',
-                                                        cursor: 'pointer',
-                                                        color: '#222',
-                                                        fontWeight: 'bold',
-                                                        fontSize: '1rem',
-                                                        width: '100%',
-                                                        textAlign: 'left',
-                                                        transition: 'background 0.2s, color 0.2s'
-                                                    }}
-                                                    onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
-                                                    onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(item.exposure)}
-                                                >{index + 1}. {item.name}: from ${item.median_salary} to ${item.new_median_salary} (<span style={{ backgroundColor: getColor(item.exposure) }}>{item.median_salary_change}</span> change) each year
-                                                </button>
-                                            </li>
-                                        );
+                                            <li key={item.name}
+                                                onClick={() => handleItemClickDetailed(item)}
+                                                style={{
+                                                    cursor: 'pointer',
+                                                    backgroundColor: getColor(item.exposure)
+                                                }}
+                                            >{item.name}: {item.exposure}%</li>
+                                        )
                                     })}
                                 </ol>
                             </div>
@@ -455,79 +442,31 @@ function AIExposureVisualization() {
                                 marginBottom: '10px',
                                 color: 'black'
                             }}> */}
-                            <p style={{
-                                textAlign: 'center',
-                                marginBottom: '30px',
-                                color: 'black'
-                            }}>Of all occupations, including occupations you did not select...</p>
-                            ...here are the top 3 occupations most <strong>positively</strong> impacted.
+                            Here are the top 3 occupations most positively impacted in general.
                             {/* </label> */}
                             <div>
-                                <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
-                                    <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
-                                        <button onClick={() => handleItemClickDetailed(mockData.occupations[most_positive])}
-                                            style={{
-                                                backgroundColor: getColor(mockData.occupations[most_positive].exposure),
-                                                border: '1px solid #ccc',
-                                                borderRadius: '6px',
-                                                padding: '10px 16px',
-                                                cursor: 'pointer',
-                                                color: '#222',
-                                                fontWeight: 'bold',
-                                                fontSize: '1rem',
-                                                width: '100%',
-                                                textAlign: 'left',
-                                                transition: 'background 0.2s, color 0.2s'
-                                            }}
-                                            onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
-                                            onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[most_positive].exposure)}
-                                        >
-                                            1. {mockData.occupations[most_positive].name}: from ${mockData.occupations[most_positive].median_salary} to ${mockData.occupations[most_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[most_positive].exposure) }}>{mockData.occupations[most_positive].median_salary_change}</span> change) each year
-                                        </button>
-                                    </li>
-                                    <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
-                                        <button
-                                            onClick={() => handleItemClickDetailed(mockData.occupations[second_positive])}
-                                            style={{
-                                                backgroundColor: getColor(mockData.occupations[second_positive].exposure),
-                                                border: '1px solid #ccc',
-                                                borderRadius: '6px',
-                                                padding: '10px 16px',
-                                                cursor: 'pointer',
-                                                color: '#222',
-                                                fontWeight: 'bold',
-                                                fontSize: '1rem',
-                                                width: '100%',
-                                                textAlign: 'left',
-                                                transition: 'background 0.2s, color 0.2s'
-                                            }}
-                                            onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
-                                            onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[second_positive].exposure)}
-                                        >
-                                            2. {mockData.occupations[second_positive].name}: from ${mockData.occupations[second_positive].median_salary} to ${mockData.occupations[second_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[second_positive].exposure) }}>{mockData.occupations[second_positive].median_salary_change}</span> change) each year
-                                        </button>
-                                    </li>
-                                    <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
-                                        <button onClick={() => handleItemClickDetailed(mockData.occupations[third_positive])}
-                                            style={{
-                                                backgroundColor: getColor(mockData.occupations[third_positive].exposure),
-                                                border: '1px solid #ccc',
-                                                borderRadius: '6px',
-                                                padding: '10px 16px',
-                                                cursor: 'pointer',
-                                                color: '#222',
-                                                fontWeight: 'bold',
-                                                fontSize: '1rem',
-                                                width: '100%',
-                                                textAlign: 'left',
-                                                transition: 'background 0.2s, color 0.2s'
-                                            }}
-                                            onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
-                                            onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[third_positive].exposure)}
-                                        >
-                                            3. {mockData.occupations[third_positive].name}: from ${mockData.occupations[third_positive].median_salary} to ${mockData.occupations[third_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[third_positive].exposure) }}>{mockData.occupations[third_positive].median_salary_change}</span> change) each year
-                                        </button>
-                                    </li>
+                                <ol>
+                                    <li
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[most_positive])}
+                                        style={{
+                                            cursor: 'pointer',
+                                            backgroundColor: getColor(mockData.occupations[most_positive].exposure)
+                                        }}
+                                    >{mockData.occupations[most_positive].name}: {mockData.occupations[most_positive].exposure}%</li>
+                                    <li
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[second_positive])}
+                                        style={{
+                                            cursor: 'pointer',
+                                            backgroundColor: getColor(mockData.occupations[second_positive].exposure)
+                                        }}
+                                    >{mockData.occupations[second_positive].name}: {mockData.occupations[second_positive].exposure}%</li>
+                                    <li
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[third_positive])}
+                                        style={{
+                                            cursor: 'pointer',
+                                            backgroundColor: getColor(mockData.occupations[third_positive].exposure)
+                                        }}
+                                    >{mockData.occupations[third_positive].name}: {mockData.occupations[third_positive].exposure}%</li>
                                 </ol>
                             </div>
                             {/* <label style={{
@@ -537,71 +476,31 @@ function AIExposureVisualization() {
                                 marginBottom: '10px',
                                 color: 'black'
                             }}> */}
-                            ...here are the top 3 occupations most <strong>negatively</strong> impacted.
+                            Here are the top 3 occupations most negatively impacted in general.
                             {/* </label> */}
                             <div>
-                                <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
-                                    <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
-                                        <button onClick={() => handleItemClickDetailed(mockData.occupations[most_negative])}
-                                            style={{
-                                                backgroundColor: getColor(mockData.occupations[most_negative].exposure),
-                                                border: '1px solid #ccc',
-                                                borderRadius: '6px',
-                                                padding: '10px 16px',
-                                                cursor: 'pointer',
-                                                color: '#222',
-                                                fontWeight: 'bold',
-                                                fontSize: '1rem',
-                                                width: '100%',
-                                                textAlign: 'left',
-                                                transition: 'background 0.2s, color 0.2s'
-                                            }}
-                                            onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
-                                            onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[most_negative].exposure)}
-                                        >
-                                            1. {mockData.occupations[most_negative].name}: from ${mockData.occupations[most_negative].median_salary} to ${mockData.occupations[most_negative].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[most_negative].exposure) }}>{mockData.occupations[most_negative].median_salary_change}</span> change) each year
-                                        </button></li>
-                                    <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
-                                        <button onClick={() => handleItemClickDetailed(mockData.occupations[second_negative])}
-                                            style={{
-                                                backgroundColor: getColor(mockData.occupations[second_negative].exposure),
-                                                border: '1px solid #ccc',
-                                                borderRadius: '6px',
-                                                padding: '10px 16px',
-                                                cursor: 'pointer',
-                                                color: '#222',
-                                                fontWeight: 'bold',
-                                                fontSize: '1rem',
-                                                width: '100%',
-                                                textAlign: 'left',
-                                                transition: 'background 0.2s, color 0.2s'
-                                            }}
-                                            onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
-                                            onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[second_negative].exposure)}
-                                        >
-                                            2. {mockData.occupations[second_negative].name}: from ${mockData.occupations[second_negative].median_salary} to ${mockData.occupations[second_negative].new_median_salary}
-                                            (<span style={{ backgroundColor: getColor(mockData.occupations[second_negative].exposure) }}>{mockData.occupations[second_negative].median_salary_change}</span> change) each year
-                                        </button></li>
-                                    <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
-                                        <button onClick={() => handleItemClickDetailed(mockData.occupations[third_negative])}
-                                            style={{
-                                                backgroundColor: getColor(mockData.occupations[third_negative].exposure),
-                                                border: '1px solid #ccc',
-                                                borderRadius: '6px',
-                                                padding: '10px 16px',
-                                                cursor: 'pointer',
-                                                color: '#222',
-                                                fontWeight: 'bold',
-                                                fontSize: '1rem',
-                                                width: '100%',
-                                                textAlign: 'left',
-                                                transition: 'background 0.2s, color 0.2s'
-                                            }}
-                                            onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
-                                            onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[third_negative].exposure)}
-                                        >
-                                            3.  {mockData.occupations[third_negative].name}: from ${mockData.occupations[third_negative].median_salary} to ${mockData.occupations[third_negative].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[third_negative].exposure) }}>{mockData.occupations[third_negative].median_salary_change}</span> change) each year
-                                        </button></li>
+                                <ol>
+                                    <li
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[most_negative])}
+                                        style={{
+                                            cursor: 'pointer',
+                                            backgroundColor: getColor(mockData.occupations[most_negative].exposure)
+                                        }}
+                                    >{mockData.occupations[most_negative].name}: {mockData.occupations[most_negative].exposure}%</li>
+                                    <li
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[second_negative])}
+                                        style={{
+                                            cursor: 'pointer',
+                                            backgroundColor: getColor(mockData.occupations[second_negative].exposure)
+                                        }}
+                                    >{mockData.occupations[second_negative].name}: {mockData.occupations[second_negative].exposure}%</li>
+                                    <li
+                                        onClick={() => handleItemClickDetailed(mockData.occupations[third_negative])}
+                                        style={{
+                                            cursor: 'pointer',
+                                            backgroundColor: getColor(mockData.occupations[third_negative].exposure)
+                                        }}
+                                    >{mockData.occupations[third_negative].name}: {mockData.occupations[third_negative].exposure}%</li>
                                 </ol>
                             </div>
                         </div >
@@ -703,7 +602,7 @@ function AIExposureVisualization() {
                                 Detailed Information
                             </h4>
                             <p style={{ marginBottom: '10px', lineHeight: '1.5', color: 'black' }}>
-                                Workers in the {selectedItem.name} occupations have a projected <strong>
+                                Workers in {selectedItem.name} occupations have a projected <strong>
                                     {/* {selectedItem.exposure > 2 ?
                                     `big increase` :
                                     selectedItem.exposure > 0 ?
@@ -715,43 +614,35 @@ function AIExposureVisualization() {
                                 </strong> in money earned. Based on their current median salary of ${selectedItem.median_salary}, workers are expected to have a salary decline of {selectedItem.median_salary_change} ({selectedItem.exposure}%) to ${selectedItem.new_median_salary}.
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
-                                <strong>{`Occupations similar to ${selectedItem.name} are shown below.`}</strong>
+                                {`The potential effects of AI on occupations similar to ${selectedItem.name} occupations are shown below.`}
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
                                 <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
                                     {(selectedItem.occupation).map(occupation_number => {
                                         return (
-                                            <li><span style={{ backgroundColor: getColor(mockData.occupations[occupation_number].exposure) }}>
-                                                {mockData.occupations[occupation_number].name}</span>: from
-                                                ${mockData.occupations[occupation_number].median_salary} to ${mockData.occupations[occupation_number].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[occupation_number].exposure) }}> {mockData.occupations[occupation_number].median_salary_change}</span> change) each year</li>
+                                            <li key={occupation_number}
+                                                onClick={() => handleItemClickDetailed(mockData.occupations[occupation_number])}
+                                                style={{
+                                                    cursor: 'pointer',
+                                                    backgroundColor: getColor(mockData.occupations[occupation_number].exposure)
+                                                }}
+                                            >{mockData.occupations[occupation_number].name}: {mockData.occupations[occupation_number].exposure}%</li>
                                         )
                                     })}
                                 </ol>
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
-                                <strong>Relevant areas of study</strong>
+                                {`The majors most helpful to pursuing a career in ${selectedItem.name} occupations are shown below.`}
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
-                                <ul style={{ textAlign: 'left', listStylePosition: 'inside', paddingLeft: 0, margin: 0 }}>
-                                    <li>  Workers in the {selectedItem.name} occupations tend to study <strong>{selectedItem.major.join(', ')}</strong>.
-                                    </li>
-                                    {(selectedItem.occupation).map(occupation_number => {
+                                <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
+                                    {(selectedItem.major).map(major => {
                                         return (
-                                            <li >
-                                                Workers in the {mockData.occupations[occupation_number].name} occupations tend to study <strong>{mockData.occupations[occupation_number].major.join(', ')}</strong>.
-                                            </li>
+                                            <li key={major}>{major}</li>
                                         )
                                     })}
-                                </ul>
+                                </ol>
                             </p>
-                            {/* {(selectedItem.occupation).map(occupation_number => {
-                                return (
-                                    <li >
-                                        Workers in the {mockData.occupations[occupation_number].name} occupations tend to study <strong>{mockData.occupations[occupation_number].major.join(', ')}</strong>.
-                                    </li>
-                                )
-                            })} */}
-
                         </div>
                     </div>
                 )
@@ -775,9 +666,9 @@ function AIExposureVisualization() {
                 </div>
             )}
             {showTop && (
-                <div
+                <div 
                     style={{
-                        paddingBottom: '20px'
+                            paddingBottom: '20px'
                     }}
                 >
                     <div>
