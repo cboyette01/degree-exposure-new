@@ -625,25 +625,25 @@ function AIExposureVisualization() {
                             borderRadius: '8px',
                             boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
                         }}>
-                            <label style={{
+                            {/* <label style={{
                                 display: 'block',
                                 fontSize: '16px',
                                 fontWeight: 'bold',
                                 marginBottom: '10px',
                                 color: 'black'
-                            }}>
-                                Number of clicks and time spent on detailed information for each occupation
-                            </label>
+                            }}> */}
+                                {/* Number of clicks and time spent on detailed information for each occupation */}
+                            {/* </label> */}
                             <div>
-                                <ul>
+                                {/* <ul>
                                     {mockData.occupations.map(occupation => {
                                         return (
                                             <li key={occupation.name}>{occupation.name}: {occupation.count} clicks and {timeSpentDetail[occupation.id].time} seconds</li>
                                         )
                                     })}
-                                </ul>
+                                </ul> */}
                             </div>
-                            <label style={{
+                            {/* <label style={{
                                 display: 'block',
                                 fontSize: '16px',
                                 fontWeight: 'bold',
@@ -670,7 +670,8 @@ function AIExposureVisualization() {
                             </label>
                             <div>
                                 <p>Search Terms: {searchTerms}</p>
-                            </div>
+                            </div> */}
+                            Thank you for completing this portion of the survey. Please click Next at the bottom right of the page to continue the survey.
                         </div >
                     </div >
                 </>
