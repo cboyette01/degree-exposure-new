@@ -170,6 +170,7 @@ function AIExposureVisualization() {
         setSelectedItem(null);
         updateTimeSpentPages(2, timeSpent);
         setTimeSpent(0);
+        window.parent.postMessage("showNextButton", "*");
     };
 
     return (
