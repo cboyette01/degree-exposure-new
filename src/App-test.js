@@ -1,6 +1,20 @@
+/* Use the following code to upload the code to GitHub
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/cboyette01/degree-exposure-new.git
+git push -u origin main
+
+npm install
+npm start
+
+npm install --save gh-pages
+npm run deploy
+*/
+
+
 import React, { useState, useEffect } from 'react';
 
-// Mock data - in the future this will be replaced with imported CSV data
 const mockData = {
     occupations: [
         { id: 0, name: "Management", exposure: -1.93, median_salary: "122,090", median_salary_change: '-$2,356', new_median_salary: '119,734', count: 0, time: 0, major: ["Business Management and Administration","General Business","Accounting"], occupation: [16, 1, 3] },
@@ -11,8 +25,8 @@ const mockData = {
         { id: 5, name: "Community and Social Service", exposure: -0.93, median_salary: "57,530", median_salary_change: '-$535', new_median_salary: '56,995', count: 0, time: 0, major: ["Psychology","Social Work","Sociology"], occupation: [9, 7, 10] },
         { id: 6, name: "Legal", exposure: -1.61, median_salary: "99,990", median_salary_change: '-$1,610', new_median_salary: '98,380', count: 0, time: 0, major: ["Political Science and Government", "Criminal Justice and Fire Protection", "Psychology"], occupation: [16, 1, 0] },
         { id: 7, name: "Educational Instruction and Library", exposure: -1.53, median_salary: "59,220", median_salary_change: '-$906', new_median_salary: '58,314', count: 0, time: 0, major: ["Education"], occupation: [16, 9, 0] },
-        { id: 8, name: "Arts, Design, Entertainment, Sports, and Media", exposure: -2.22, median_salary: "60,140", median_salary_change: '-$1,335', new_median_salary: '58,805', count: 0, time: 0, major: ["New Media", "Sports Medicine & Rehabilitation"], occupation: [0, 7, 2] },
-        { id: 9, name: "Healthcare Practitioners and Technical", exposure: -2.08, median_salary: "83,090", median_salary_change: '-$1,728', new_median_salary: '81,362', count: 0, time: 0, major: ["BioScience", "Patient Care Technician Training", "Medical Assistant Training", "Sports Medicine & Rehabilitation"], occupation: [10, 7, 5] },
+        { id: 8, name: "Arts, Design, Entertainment, Sports, and Media", exposure: -2.22, median_salary: "60,140", median_salary_change: '-$1,335', new_median_salary: '58,805', count: 0, time: 0, major: ["Commercial Art and Graphic Design", "Communications", "English Language and Literature"], occupation: [0, 7, 2] },
+        { id: 9, name: "Healthcare Practitioners and Technical", exposure: -2.08, median_salary: "83,090", median_salary_change: '-$1,728', new_median_salary: '81,362', count: 0, time: 0, major: ["Nursing", "Biology", "Psychology"], occupation: [10, 7, 5] },
         { id: 10, name: "Healthcare Support", exposure: -2.74, median_salary: "37,180", median_salary_change: '-$1,019', new_median_salary: '36,161', count: 0, time: 0, major: ["BioScience", "Patient Care Technician Training", "Medical Assistant Training","Sports Medicine & Rehabilitation"], occupation: [9, 5, 7] },
         { id: 11, name: "Protective Service", exposure: -3.21, median_salary: "50,580", median_salary_change: '-$1,624', new_median_salary: '48,956', count: 0, time: 0, major: ["Criminal Justice"], occupation: [21, 0, 5] },
         { id: 12, name: "Food Preparation and Serving Related", exposure: -5.10, median_salary: "34,130", median_salary_change: '-$1,741', new_median_salary: '32,389', count: 0, time: 0, major: ["Culinary Arts"], occupation: [20, 14, 15] },
@@ -424,8 +438,9 @@ function AIExposureVisualization() {
                                                     }}
                                                     onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
                                                     onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(item.exposure)}
-                                                >{index + 1}. {item.name}: from ${item.median_salary} to ${item.new_median_salary} (<span style={{ backgroundColor: getColor(item.exposure) }}>{item.median_salary_change}</span> change) each year
+                                                >{index + 1}. {item.name}
                                                 </button>
+                                                {/* : from ${item.median_salary} to ${item.new_median_salary} (<span style={{ backgroundColor: getColor(item.exposure) }}>{item.median_salary_change}</span> change) each year */}
                                             </li>
                                         );
                                     })}
@@ -483,8 +498,9 @@ function AIExposureVisualization() {
                                             onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
                                             onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[most_positive].exposure)}
                                         >
-                                            1. {mockData.occupations[most_positive].name}: from ${mockData.occupations[most_positive].median_salary} to ${mockData.occupations[most_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[most_positive].exposure) }}>{mockData.occupations[most_positive].median_salary_change}</span> change) each year
+                                            1. {mockData.occupations[most_positive].name}
                                         </button>
+                                        {/* : from ${mockData.occupations[most_positive].median_salary} to ${mockData.occupations[most_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[most_positive].exposure) }}>{mockData.occupations[most_positive].median_salary_change}</span> change) each year */}
                                     </li>
                                     <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
                                         <button
@@ -505,8 +521,10 @@ function AIExposureVisualization() {
                                             onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
                                             onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[second_positive].exposure)}
                                         >
-                                            2. {mockData.occupations[second_positive].name}: from ${mockData.occupations[second_positive].median_salary} to ${mockData.occupations[second_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[second_positive].exposure) }}>{mockData.occupations[second_positive].median_salary_change}</span> change) each year
+                                            2. {mockData.occupations[second_positive].name}
                                         </button>
+                                        {/* : from ${mockData.occupations[second_positive].median_salary} to ${mockData.occupations[second_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[second_positive].exposure) }}>{mockData.occupations[second_positive].median_salary_change}</span> change) each year */}
+                                        
                                     </li>
                                     <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
                                         <button onClick={() => handleItemClickDetailed(mockData.occupations[third_positive])}
@@ -526,8 +544,9 @@ function AIExposureVisualization() {
                                             onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
                                             onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[third_positive].exposure)}
                                         >
-                                            3. {mockData.occupations[third_positive].name}: from ${mockData.occupations[third_positive].median_salary} to ${mockData.occupations[third_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[third_positive].exposure) }}>{mockData.occupations[third_positive].median_salary_change}</span> change) each year
+                                            3. {mockData.occupations[third_positive].name}
                                         </button>
+                                        {/* : from ${mockData.occupations[third_positive].median_salary} to ${mockData.occupations[third_positive].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[third_positive].exposure) }}>{mockData.occupations[third_positive].median_salary_change}</span> change) each year */}
                                     </li>
                                 </ol>
                             </div>
@@ -560,8 +579,9 @@ function AIExposureVisualization() {
                                             onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
                                             onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[most_negative].exposure)}
                                         >
-                                            1. {mockData.occupations[most_negative].name}: from ${mockData.occupations[most_negative].median_salary} to ${mockData.occupations[most_negative].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[most_negative].exposure) }}>{mockData.occupations[most_negative].median_salary_change}</span> change) each year
+                                            1. {mockData.occupations[most_negative].name}
                                         </button></li>
+                                        {/* : from ${mockData.occupations[most_negative].median_salary} to ${mockData.occupations[most_negative].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[most_negative].exposure) }}>{mockData.occupations[most_negative].median_salary_change}</span> change) each year */}
                                     <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
                                         <button onClick={() => handleItemClickDetailed(mockData.occupations[second_negative])}
                                             style={{
@@ -580,9 +600,10 @@ function AIExposureVisualization() {
                                             onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
                                             onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[second_negative].exposure)}
                                         >
-                                            2. {mockData.occupations[second_negative].name}: from ${mockData.occupations[second_negative].median_salary} to ${mockData.occupations[second_negative].new_median_salary}
-                                            (<span style={{ backgroundColor: getColor(mockData.occupations[second_negative].exposure) }}>{mockData.occupations[second_negative].median_salary_change}</span> change) each year
+                                            2. {mockData.occupations[second_negative].name}
                                         </button></li>
+                                        {/* : from ${mockData.occupations[second_negative].median_salary} to ${mockData.occupations[second_negative].new_median_salary}
+                                            (<span style={{ backgroundColor: getColor(mockData.occupations[second_negative].exposure) }}>{mockData.occupations[second_negative].median_salary_change}</span> change) each year */}
                                     <li style={{ listStyleType: 'none', marginBottom: '12px' }}>
                                         <button onClick={() => handleItemClickDetailed(mockData.occupations[third_negative])}
                                             style={{
@@ -601,8 +622,9 @@ function AIExposureVisualization() {
                                             onMouseOver={e => e.currentTarget.style.backgroundColor = '#e0e7ff'}
                                             onMouseOut={e => e.currentTarget.style.backgroundColor = getColor(mockData.occupations[third_negative].exposure)}
                                         >
-                                            3.  {mockData.occupations[third_negative].name}: from ${mockData.occupations[third_negative].median_salary} to ${mockData.occupations[third_negative].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[third_negative].exposure) }}>{mockData.occupations[third_negative].median_salary_change}</span> change) each year
+                                            3.  {mockData.occupations[third_negative].name}
                                         </button></li>
+                                        {/* : from ${mockData.occupations[third_negative].median_salary} to ${mockData.occupations[third_negative].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[third_negative].exposure) }}>{mockData.occupations[third_negative].median_salary_change}</span> change) each year */}
                                 </ol>
                             </div>
                         </div >
@@ -714,7 +736,8 @@ function AIExposureVisualization() {
                                             `big decrease` :
                                             `small decrease`
                                     }
-                                </strong> in money earned. Based on their current median salary of ${selectedItem.median_salary}, workers are expected to have a salary decline of {selectedItem.median_salary_change} ({selectedItem.exposure}%) to ${selectedItem.new_median_salary}.
+                                </strong> in money earned. 
+                                {/* Based on their current median salary of ${selectedItem.median_salary}, workers are expected to have a salary decline of {selectedItem.median_salary_change} ({selectedItem.exposure}%) to ${selectedItem.new_median_salary}. */}
                             </p>
                             <p style={{ lineHeight: '1.5', color: 'black' }}>
                                 <strong>{`Occupations similar to ${selectedItem.name} are shown below.`}</strong>
@@ -724,8 +747,8 @@ function AIExposureVisualization() {
                                     {(selectedItem.occupation).map(occupation_number => {
                                         return (
                                             <li><span style={{ backgroundColor: getColor(mockData.occupations[occupation_number].exposure) }}>
-                                                {mockData.occupations[occupation_number].name}</span>: from
-                                                ${mockData.occupations[occupation_number].median_salary} to ${mockData.occupations[occupation_number].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[occupation_number].exposure) }}> {mockData.occupations[occupation_number].median_salary_change}</span> change) each year</li>
+                                                {mockData.occupations[occupation_number].name}</span></li>
+                                                // : from ${mockData.occupations[occupation_number].median_salary} to ${mockData.occupations[occupation_number].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[occupation_number].exposure) }}> {mockData.occupations[occupation_number].median_salary_change}</span> change) each year
                                         )
                                     })}
                                 </ol>
