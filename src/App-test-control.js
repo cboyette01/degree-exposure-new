@@ -3,7 +3,7 @@ git init
 git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/cboyette01/degree-exposure-new.git
-git push -u origin master
+git push -u origin main
 
 npm install
 npm start
@@ -59,11 +59,11 @@ function AIExposureVisualization() {
     const listFormatter = new Intl.ListFormat('en-US', { style: 'long', type: 'conjunction' });
 
     // Define top 3 positive and negative occupations
-    const most_positive = 5;
-    const second_positive = 7;
-    const third_positive = 6;
-    const most_negative = 16;
-    const second_negative = 21;
+    const most_positive = 3;
+    const second_positive = 8;
+    const third_positive = 13;
+    const most_negative = 21;
+    const second_negative = 15;
     const third_negative = 20;
 
     // Set timer
@@ -146,7 +146,7 @@ function AIExposureVisualization() {
 
     const handleSubmit = () => {
         if (list.length === 6) {
-            const sortedList = [...list].sort((a, b) => b.exposure - a.exposure);
+            const sortedList = [...list].sort((a, b) => a.name.localeCompare(b.name))
             setRanked(sortedList);
             setShowSearch(false);
             updateTimeSpentPages(0, timeSpent);
@@ -213,7 +213,7 @@ function AIExposureVisualization() {
                     marginBottom: '30px',
                     color: 'black'
                 }}>
-                    Please select the 6 occupations you previously entered. As a reminder, these are the top 6 occupations you would consider for your future career.
+                   Please select the 6 occupations you previously entered. As a reminder, these are the top 6 occupations you would consider for your future career.
                 </p>
             )}
             {showSearch && (
@@ -418,7 +418,7 @@ function AIExposureVisualization() {
                             }}>
                                 Here are the occupations you selected. </p>
 
-                            They are ranked from most <strong>positively</strong> impacted to most <strong>negatively</strong> impacted.
+                            They are ranked in alphabetical order.
                             {/* </label> */}
                             <div>
                                 <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
@@ -479,7 +479,7 @@ function AIExposureVisualization() {
                                 marginBottom: '30px',
                                 color: 'black'
                             }}>Of all occupations, including occupations you did not select...</p>
-                            ...here are the top 3 occupations most <strong>positively</strong> impacted.
+                            ...here are the first 3 occupations by alphabetical order.
                             {/* </label> */}
                             <div>
                                 <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
@@ -560,7 +560,7 @@ function AIExposureVisualization() {
                                 marginBottom: '10px',
                                 color: 'black'
                             }}> */}
-                            ...here are the top 3 occupations most <strong>negatively</strong> impacted.
+                            ...here are the last 3 occupations by alphabetical order.
                             {/* </label> */}
                             <div>
                                 <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
