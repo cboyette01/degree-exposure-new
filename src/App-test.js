@@ -2,7 +2,7 @@
 git init
 git add .
 git commit -m "Initial commit"
-git remote remove origin_order
+git remote remove origin
 git remote add origin https://github.com/cboyette01/degree-exposure-new.git
 git push -u origin master
 
@@ -166,16 +166,16 @@ function AIExposureVisualization() {
     };
 
     const handleSubmit = () => {
-        if (list.length === 6) {
-            const sortedList = [...list].sort((a, b) => b.exposure - a.exposure);
-            setRanked(sortedList);
-            setShowSearch(false);
-            updateTimeSpentPages(0, timeSpent);
-            setTimeSpent(0);
-        }
-        else {
-            alert("You need to select 6 occupations before you can move on.");
-        }
+        // if (list.length === 6) {
+        const sortedList = [...list].sort((a, b) => b.exposure - a.exposure);
+        setRanked(sortedList);
+        setShowSearch(false);
+        updateTimeSpentPages(0, timeSpent);
+        setTimeSpent(0);
+        // }
+        // else {
+        //     alert("You need to select 6 occupations before you can move on.");
+        // }
     };
 
     const handleNext = () => {
@@ -235,6 +235,9 @@ function AIExposureVisualization() {
                     color: 'black'
                 }}>
                     Please select the 6 occupations you previously entered. As a reminder, these are the top 6 occupations you would consider for your future career.
+                    Afterwards, you will be provided information about the estimated impact of AI on each occupation you selected. The estimated effects are obtained from&nbsp;
+                    <a href="https://www.nber.org/papers/w31846">Kogan et. al (2023)</a>.
+                    Please note that there is uncertainty in any predictions on the impact of AI.
                 </p>
             )}
             {showSearch && (
@@ -364,7 +367,7 @@ function AIExposureVisualization() {
                                 Preferred Occupations
                             </label>
                             <div>
-                                <ol>
+                                <ol id="preferred_occupations">
                                     {list.map(item => (
                                         <li key={item.name}>{item.name}
                                             <button
