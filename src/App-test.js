@@ -21,28 +21,28 @@ import React, { useState, useEffect } from 'react';
 
 const mockData = {
     occupations: [
-        { id: 11, name: "Management", exposure: 3.91, median_salary: "122,090", median_salary_change: '-$2,356', new_median_salary: '119,734', count: 0, time: 0, major: ["Business", "Engineering", "Social Sciences"], occupation: [16, 1, 3] },
-        { id: 13, name: "Business and Financial", exposure: 6.16, median_salary: "80,920", median_salary_change: '-$2,808', new_median_salary: '78,112', count: 0, time: 0, major: ["Business", "Social Sciences", "Engineering"], occupation: [16, 0, 2] },
-        { id: 15, name: "Computer and Mathematical", exposure: 3.84, median_salary: "105,850", median_salary_change: '-$3,673', new_median_salary: '102,177', count: 0, time: 0, major: ["Computer and Information Sciences", "Business", "Engineering"], occupation: [3, 16, 19] },
-        { id: 17, name: "Architecture and Engineering", exposure: 3.07, median_salary: "97,310", median_salary_change: '-$1,839', new_median_salary: '95,471', count: 0, time: 0, major: ["Engineering", "Business", "Architecture"], occupation: [20, 19, 18] },
-        { id: 19, name: "Life, Physical, and Social Science", exposure: 3.41, median_salary: "78,980", median_salary_change: '-$1,509', new_median_salary: '77,471', count: 0, time: 0, major: ["Biology and Life Sciences", "Physical Sciences", "Psychology"], occupation: [9, 3, 7] },
-        { id: 21, name: "Community and Social Service", exposure: 2.23, median_salary: "57,530", median_salary_change: '-$535', new_median_salary: '56,995', count: 0, time: 0, major: ["Psychology", "Public Affairs, Policy, and Social Work", "Education Administration and Teaching"], occupation: [9, 7, 10] },
-        { id: 23, name: "Legal", exposure: 2.51, median_salary: "99,990", median_salary_change: '-$1,610', new_median_salary: '98,380', count: 0, time: 0, major: ["Social Sciences", "Business", "History"], occupation: [1, 16, 0] },
-        { id: 25, name: "Educational Instruction and Library", exposure: 3.35, median_salary: "59,220", median_salary_change: '-$906', new_median_salary: '58,314', count: 0, time: 0, major: ["Education Administration and Teaching", "Business", "Social Sciences"], occupation: [9, 5] },
-        { id: 27, name: "Arts, Design, Entertainment, Sports, and Media", exposure: 2.75, median_salary: "60,140", median_salary_change: '-$1,335', new_median_salary: '58,805', count: 0, time: 0, major: ["Fine Arts", "Communications", "Business"], occupation: [] },
-        { id: 29, name: "Healthcare Practitioners and Technical", exposure: 2.27, median_salary: "83,090", median_salary_change: '-$1,728', new_median_salary: '81,362', count: 0, time: 0, major: ["Medical and Health Sciences and Services", "Biology and Life Sciences", "Psychology"], occupation: [10, 5, 7] },
-        { id: 31, name: "Healthcare Support", exposure: 3.17, median_salary: "37,180", median_salary_change: '-$1,019', new_median_salary: '36,161', count: 0, time: 0, major: ["BioScience", "Patient Care Technician Training", "Medical Assistant Training", "Sports Medicine & Rehabilitation"], occupation: [9, 7, 5] },
-        { id: 33, name: "Protective Service", exposure: 2.6, median_salary: "50,580", median_salary_change: '-$1,624', new_median_salary: '48,956', count: 0, time: 0, major: ["Criminal Justice"], occupation: [21, 16] },
-        { id: 35, name: "Food Preparation and Serving Related", exposure: 0.27, median_salary: "34,130", median_salary_change: '-$1,741', new_median_salary: '32,389', count: 0, time: 0, major: ["Culinary Arts"], occupation: [20] },
-        { id: 37, name: "Building and Grounds Cleaning and Maintenance", exposure: 0.42, median_salary: "36,790", median_salary_change: '-$1,501', new_median_salary: '35,289', count: 0, time: 0, major: ["None"], occupation: [20, 18, 19] },
-        { id: 39, name: "Personal Care and Service", exposure: 1.13, median_salary: "35,110", median_salary_change: '-$815', new_median_salary: '34,295', count: 0, time: 0, major: ["Cosmetology", "Manicurist Training"], occupation: [9] },
-        { id: 41, name: "Sales and Related", exposure: 4.32, median_salary: "37,460", median_salary_change: '-$2,195', new_median_salary: '35,265', count: 0, time: 0, major: ["Business & Risk Management"], occupation: [16, 1, 0] },
-        { id: 43, name: "Office and Administrative Support", exposure: -0.1, median_salary: "46,320", median_salary_change: '-$4,011', new_median_salary: '42,309', count: 0, time: 0, major: ["Business & Risk Management"], occupation: [1, 0, 15] },
-        { id: 45, name: "Farming, Fishing, and Forestry", exposure: -0.27, median_salary: "36,750", median_salary_change: '-$1,510', new_median_salary: '35,240', count: 0, time: 0, major: ["BioScience"], occupation: [20, 18, 19] },
-        { id: 47, name: "Construction and Extraction", exposure: 2.15, median_salary: "58,360", median_salary_change: '-$1,039', new_median_salary: '57,321', count: 0, time: 0, major: ["Construction Technology"], occupation: [20, 19, 21] },
-        { id: 49, name: "Installation, Maintenance, and Repair", exposure: 1.31, median_salary: "58,230", median_salary_change: '-$1,234', new_median_salary: '56,996', count: 0, time: 0, major: ["Automotive Technology", "Engineering Technologies"], occupation: [20, 18, 21] },
-        { id: 51, name: "Production", exposure: -2.04, median_salary: "45,960", median_salary_change: '-$2,914', new_median_salary: '43,046', count: 0, time: 0, major: ["Precision Machining", "Welding Technology"], occupation: [18, 19, 3] },
-        { id: 53, name: "Transportation and Material Moving", exposure: -0.49, median_salary: "42,740", median_salary_change: '-$2,941', new_median_salary: '39,799', count: 0, time: 0, major: ["Automotive Technology"], occupation: [20, 19, 18] },
+        { id: 11, name: "Management", exposure: 3.91, median_salary: "122,090", median_salary_change: "$4,774", new_median_salary: "126,864", count: 0, time: 0, major: ["Business", "Engineering", "Social Sciences"], occupation: [16, 1, 3] },
+        { id: 13, name: "Business and Financial", exposure: 6.16, median_salary: "80,920", median_salary_change: "$4,985", new_median_salary: "85,905", count: 0, time: 0, major: ["Business", "Social Sciences", "Engineering"], occupation: [16, 0, 2] },
+        { id: 15, name: "Computer and Mathematical", exposure: 3.84, median_salary: "105,850", median_salary_change: "$4,065", new_median_salary: "109.915", count: 0, time: 0, major: ["Computer and Information Sciences", "Business", "Engineering"], occupation: [3, 16, 19] },
+        { id: 17, name: "Architecture and Engineering", exposure: 3.07, median_salary: "97,310", median_salary_change: "$2,987", new_median_salary: "100,297", count: 0, time: 0, major: ["Engineering", "Business", "Architecture"], occupation: [20, 19, 18] },
+        { id: 19, name: "Life, Physical, and Social Science", exposure: 3.41, median_salary: "78,980", median_salary_change: "$2,693", new_median_salary: "81,673", count: 0, time: 0, major: ["Biology and Life Sciences", "Physical Sciences", "Psychology"], occupation: [9, 3, 7] },
+        { id: 21, name: "Community and Social Service", exposure: 2.23, median_salary: "57,530", median_salary_change: "$1,283", new_median_salary: "58,813", count: 0, time: 0, major: ["Psychology", "Public Affairs, Policy, and Social Work", "Education Administration and Teaching"], occupation: [9, 7, 10] },
+        { id: 23, name: "Legal", exposure: 2.51, median_salary: "99,990", median_salary_change: "$2,510", new_median_salary: "102,500", count: 0, time: 0, major: ["Social Sciences", "Business", "History"], occupation: [1, 16, 0] },
+        { id: 25, name: "Educational Instruction and Library", exposure: 3.35, median_salary: "59,220", median_salary_change: "$1,984", new_median_salary: "61,204", count: 0, time: 0, major: ["Education Administration and Teaching", "Business", "Social Sciences"], occupation: [9, 5] },
+        { id: 27, name: "Arts, Design, Entertainment, Sports, and Media", exposure: 2.75, median_salary: "60,140", median_salary_change: "$1,654", new_median_salary: "61,794", count: 0, time: 0, major: ["Fine Arts", "Communications", "Business"], occupation: [] },
+        { id: 29, name: "Healthcare Practitioners and Technical", exposure: 2.27, median_salary: "83,090", median_salary_change: "$1,886", new_median_salary: "84,976", count: 0, time: 0, major: ["Medical and Health Sciences and Services", "Biology and Life Sciences", "Psychology"], occupation: [10, 5, 7] },
+        { id: 31, name: "Healthcare Support", exposure: 3.17, median_salary: "37,180", median_salary_change: "$1,179", new_median_salary: "38,359", count: 0, time: 0, major: ["BioScience", "Patient Care Technician Training", "Medical Assistant Training", "Sports Medicine & Rehabilitation"], occupation: [9, 7, 5] },
+        { id: 33, name: "Protective Service", exposure: 2.6, median_salary: "50,580", median_salary_change: "$1,315", new_median_salary: "51,895", count: 0, time: 0, major: ["Criminal Justice"], occupation: [21, 16] },
+        { id: 35, name: "Food Preparation and Serving Related", exposure: 0.27, median_salary: "34,130", median_salary_change: "$92", new_median_salary: "34,222", count: 0, time: 0, major: ["Culinary Arts"], occupation: [20] },
+        { id: 37, name: "Building and Grounds Cleaning and Maintenance", exposure: 0.42, median_salary: "36,790", median_salary_change: "$155", new_median_salary: "36,945", count: 0, time: 0, major: ["None"], occupation: [20, 18, 19] },
+        { id: 39, name: "Personal Care and Service", exposure: 1.13, median_salary: "35,110", median_salary_change: "$397", new_median_salary: "35,507", count: 0, time: 0, major: ["Cosmetology", "Manicurist Training"], occupation: [9] },
+        { id: 41, name: "Sales and Related", exposure: 4.32, median_salary: "37,460", median_salary_change: "$1,618", new_median_salary: "39,078", count: 0, time: 0, major: ["Business & Risk Management"], occupation: [16, 1, 0] },
+        { id: 43, name: "Office and Administrative Support", exposure: -0.1, median_salary: "46,320", median_salary_change: "-$46", new_median_salary: "46,274", count: 0, time: 0, major: ["Business & Risk Management"], occupation: [1, 0, 15] },
+        { id: 45, name: "Farming, Fishing, and Forestry", exposure: -0.27, median_salary: "36,750", median_salary_change: "-$99", new_median_salary: "36,651", count: 0, time: 0, major: ["BioScience"], occupation: [20, 18, 19] },
+        { id: 47, name: "Construction and Extraction", exposure: 2.15, median_salary: "58,360", median_salary_change: "$1,255", new_median_salary: "59.615", count: 0, time: 0, major: ["Construction Technology"], occupation: [20, 19, 21] },
+        { id: 49, name: "Installation, Maintenance, and Repair", exposure: 1.31, median_salary: "58,230", median_salary_change: "$763", new_median_salary: "58,993", count: 0, time: 0, major: ["Automotive Technology", "Engineering Technologies"], occupation: [20, 18, 21] },
+        { id: 51, name: "Production", exposure: -2.04, median_salary: "45,960", median_salary_change: "-$938", new_median_salary: "45,022", count: 0, time: 0, major: ["Precision Machining", "Welding Technology"], occupation: [18, 19, 3] },
+        { id: 53, name: "Transportation and Material Moving", exposure: -0.49, median_salary: "42,740", median_salary_change: "-$209", new_median_salary: "42,531", count: 0, time: 0, major: ["Automotive Technology"], occupation: [20, 19, 18] },
         // { id: 31, name: "Healthcare Support", exposure: -2.74, median_salary: "37,180", median_salary_change: '-$1,019', new_median_salary: '36,161', count: 0, time: 0, major: ["Medical and Health Sciences and Services", "Business", "Biology and Life Sciences"], occupation: [9, 5, 7] },
         // { id: 33, name: "Protective Service", exposure: -3.21, median_salary: "50,580", median_salary_change: '-$1,624', new_median_salary: '48,956', count: 0, time: 0, major: ["Criminal Justice and Fire Protection", "Business", "Social Sciences"], occupation: [21, 0, 5] },
         // { id: 35, name: "Food Preparation and Serving Related", exposure: -5.10, median_salary: "34,130", median_salary_change: '-$1,741', new_median_salary: '32,389', count: 0, time: 0, major: ["Business", "Fine Arts", "Social Sciences"], occupation: [20, 14, 15] },
@@ -63,11 +63,13 @@ function AIExposureVisualization() {
     const [searchTerms, setSearchTerms] = useState('');
     const [ranked, setRanked] = useState(null);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItemEnd, setSelectedItemEnd] = useState(null);
     const [list, setList] = useState([]);
     const [showSearch, setShowSearch] = useState(true);
     const [showTop, setShowTop] = useState(false);
+    const [showEnd, setShowEnd] = useState(false);
     const [timeSpent, setTimeSpent] = useState(0);
-    const [timeSpentPages, setTimeSpentPages] = useState([0, 0, 0]);
+    const [timeSpentPages, setTimeSpentPages] = useState([0, 0, 0, 0]);
     const [timeSpentDetailStart, setTimeSpentDetailStart] = useState(0);
     const [timeSpentDetail, setTimeSpentDetail] = useState(mockData.occupations);
 
@@ -153,6 +155,17 @@ function AIExposureVisualization() {
         setTimeSpentDetailStart(timeSpent);
     };
 
+    const handleItemClickEnd = (item) => {
+        if (selectedItemEnd) {
+            updateTimeSpentDetail(selectedItemEnd.id, timeSpent - timeSpentDetailStart);
+        }
+        if ((selectedItemEnd && selectedItemEnd !== item) || !selectedItemEnd) {
+            item.count++;
+        }
+        setSelectedItemEnd(selectedItemEnd?.name === item.name ? null : item);
+        setTimeSpentDetailStart(timeSpent);
+    };
+
     // Handler to clear all items from the list
     const handleClearItems = () => {
         // Optional: confirm before clearing
@@ -178,35 +191,42 @@ function AIExposureVisualization() {
         // }
     };
 
-    const handleNext = () => {
-        setShowTop(true);
+    const handleNext = (page_num, show_top) => {
+        setShowTop(show_top);
         setRanked(null);
         if (selectedItem) {
             updateTimeSpentDetail(selectedItem.id, timeSpent - timeSpentDetailStart)
         }
         setSelectedItem(null);
-        updateTimeSpentPages(1, timeSpent);
+        setSelectedItemEnd(null);
+        updateTimeSpentPages(page_num, timeSpent);
         setTimeSpent(0);
     };
 
-    const handleBack = () => {
-        setShowTop(false);
-        handleSubmit();
+    const handleBack = (page_num, show_top, submit) => {
+        setShowTop(show_top);
+        if (submit) {
+            const sortedList = [...list].sort((a, b) => b.exposure - a.exposure);
+            setRanked(sortedList);
+            setShowSearch(false);
+        }
         if (selectedItem) {
             updateTimeSpentDetail(selectedItem.id, timeSpent - timeSpentDetailStart)
         }
         setSelectedItem(null);
-        updateTimeSpentPages(2, timeSpent);
+        setSelectedItemEnd(null);
+        updateTimeSpentPages(page_num, timeSpent);
         setTimeSpent(0);
     };
 
     const handleEnd = () => {
         setShowTop(false);
+        setShowEnd(true);
         if (selectedItem) {
             updateTimeSpentDetail(selectedItem.id, timeSpent - timeSpentDetailStart)
         }
-        setSelectedItem(null);
-        updateTimeSpentPages(2, timeSpent);
+        setSelectedItemEnd(null);
+        updateTimeSpentPages(3, timeSpent);
         setTimeSpent(0);
         window.parent.postMessage("showNextButton", "*");
     };
@@ -722,7 +742,7 @@ function AIExposureVisualization() {
                 </>
             )
             }
-            {!showTop && !ranked && !showSearch && (
+            {!showTop && !ranked && !showSearch && !showEnd && (
                 <>
                     <div style={{
                         display: 'grid',
@@ -783,12 +803,116 @@ function AIExposureVisualization() {
                             <div>
                                 <p>Search Terms: {searchTerms}</p>
                             </div> */}
-                            Thank you for completing this portion of the survey. Please click Next at the bottom right of the page to continue the survey.
+                            <p>In the search bar below, enter occupations you would like
+                                to find out more information about. We will display today's earnings, how earnings are
+                                predicted to change due to AI, and the predicted future earnings from <a href="https://www.nber.org/papers/w31846">Kogan et. al (2023)</a>. 
+                            </p>
                         </div >
                     </div >
+                    {/* Search Section */}
+                    <div style={{
+                        backgroundColor: 'white',
+                        padding: '15px',
+                        borderRadius: '8px',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                        marginBottom: '30px'
+                    }}>
+                        <label style={{
+                            display: 'block',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            marginBottom: '10px',
+                            color: 'black'
+                        }}>
+                            Please click on an occupation to view more information about it.
+                        </label>
+                        <div style={{ position: 'relative' }}>
+                            <input
+                                type="text"
+                                placeholder='Search for occupations'
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                style={{
+                                    width: '100%',
+                                    padding: '10px 10px 10px 35px',
+                                    borderRadius: '6px',
+                                    border: '1px solid #d1d5db',
+                                    outline: 'none',
+                                    fontSize: '14px',
+                                    boxSizing: 'border-box'
+                                }}
+                            />
+                            <div style={{
+                                position: 'absolute',
+                                left: '10px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                color: '#9ca3af'
+                            }}>
+                                🔍
+                            </div>
+                        </div>
+                        <div
+                            style={{
+                                height: '250px',
+                                overflowY: 'scroll'
+                            }}
+                        >
+                            {data.map((item, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        onClick={() => handleItemClickEnd(item)}
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '10px',
+                                            padding: '8px',
+                                            borderRadius: '6px',
+                                            border: '2px solid transparent',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.2s ease',
+                                            backgroundColor: 'transparent'
+                                        }}
+                                    >
+                                        {/* <div style={{
+                                            width: '150px',
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                            whiteSpace: 'nowrap',
+                                            fontWeight: 'normal',
+                                            fontSize: '15px'
+                                        }}> */}
+                                        {item.name}
+                                        {/* </div> */}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </>
             )
             }
+            {!showTop && !ranked && !showSearch && showEnd && (
+            <>
+                 <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                        gap: '15px',
+                        marginBottom: '30px'
+                    }}>
+
+                        <div style={{
+                            backgroundColor: 'white',
+                            padding: '15px',
+                            borderRadius: '8px',
+                            boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                        }}>
+                            <p>Thank you for completing this portion of the survey. Please click Next at the bottom right of the page to continue the survey.</p>
+                        </div >
+                    </div >
+            </>
+            )}
+
             {/* Detail view when an item is selected */}
             {
                 selectedItem && (
@@ -896,6 +1020,119 @@ function AIExposureVisualization() {
                     </div>
                 )
             }
+            {/* Detail view when an item is selected at the end of the visualization */}
+            {
+                selectedItemEnd && (
+                    <div style={{
+                        backgroundColor: 'white',
+                        padding: '20px',
+                        borderRadius: '10px',
+                        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                        marginBottom: '20px'
+                    }}>
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(2, 1fr)',
+                            gap: '20px',
+                            marginBottom: '20px'
+                        }}>
+                        </div>
+                        <div style={{
+                            marginTop: '20px',
+                            padding: '15px',
+                            backgroundColor: '#f0f9ff',
+                            borderRadius: '6px',
+                            border: '1px solid #bfdbfe'
+                        }}>
+                            <h4 style={{ marginBottom: '10px', fontWeight: 'bold', color: '#1e40af' }}>
+                                More Detailed Information
+                            </h4>
+                            <p style={{ marginBottom: '10px', lineHeight: '1.5', color: 'black' }}>
+                                {/* Workers in the {selectedItemEnd.name} occupations have a projected <strong>
+                                    {selectedItemEnd.exposure >= 1 ?
+                                        `big increase` :
+                                        selectedItemEnd.exposure <= -1 ?
+                                            `big decrease` :
+                                            selectedItemEnd.exposure >= 0 && selectedItemEnd.exposure < 1 ?
+                                                `small increase` :
+                                                `small decrease`
+                                    }
+                                </strong> in money earned. */}
+                                Based on their current median salary of ${selectedItemEnd.median_salary}, workers in the {selectedItemEnd.name} occupations are expected to have a salary&nbsp;
+                                <strong>
+                                    {selectedItemEnd.exposure > 0 ?
+                                        `increase` :
+                                        `decrease`
+                                    }
+                                </strong> of {selectedItemEnd.median_salary_change} ({selectedItemEnd.exposure}%) to ${selectedItemEnd.new_median_salary}.
+                            </p>
+                            {/* <p style={{ lineHeight: '1.5', color: 'black' }}>
+                                <strong>{`Occupations similar to ${selectedItemEnd.name} are shown below.`}</strong>
+                            </p>
+                            <p style={{ lineHeight: '1.5', color: 'black' }}>
+                                <ol style={{ paddingLeft: '20px', marginBottom: '10px', lineHeight: '1.6', color: 'black' }}>
+                                    {(selectedItemEnd.occupation).map(occupation_number => {
+                                        return (
+                                            <li><span style={{ backgroundColor: getColor(mockData.occupations[occupation_number].exposure) }}>
+                                                {mockData.occupations[occupation_number].name}: A projected <strong>
+                                                    {mockData.occupations[occupation_number].exposure >= 1 ?
+                                                        `big increase` :
+                                                        mockData.occupations[occupation_number].exposure <= -1 ?
+                                                            `big decrease` :
+                                                            mockData.occupations[occupation_number].exposure >= 0 && mockData.occupations[occupation_number].exposure < 1 ?
+                                                                `small increase` :
+                                                                `small decrease`
+                                                    }
+                                                </strong> in money earned
+                                            </span></li>
+                                            // : from ${mockData.occupations[occupation_number].median_salary} to ${mockData.occupations[occupation_number].new_median_salary} (<span style={{ backgroundColor: getColor(mockData.occupations[occupation_number].exposure) }}> {mockData.occupations[occupation_number].median_salary_change}</span> change) each year
+                                        )
+                                    })}
+                                </ol>
+                            </p>
+                            <p style={{ lineHeight: '1.5', color: 'black' }}>
+                                <strong>Relevant areas of study</strong>
+                            </p>
+                            <p style={{ lineHeight: '1.5', color: 'black' }}>
+                                <ul style={{ textAlign: 'left', listStylePosition: 'inside', paddingLeft: 0, margin: 0 }}>
+                                    <li>
+                                        {selectedItemEnd.name}:
+                                        {selectedItemEnd.id <= 27 ?
+                                            ` The majority of workers in this occupation hold at least a college (bachelor’s) degree. ` :
+                                            selectedItemEnd.id >= 31 ?
+                                                ` The majority of workers in this occupation have less than a college (bachelor’s) degree. ` :
+                                                ` A college (bachelor’s) degree is the most prevalent credential among workers in this occupation. `
+                                        }
+                                        Workers typically study <strong>{listFormatter.format(selectedItemEnd.major)}</strong>.
+                                    </li>
+                                    {(selectedItemEnd.occupation).map(occupation_number => {
+                                        return (
+                                            <li >
+                                                {mockData.occupations[occupation_number].name}:
+                                                {mockData.occupations[occupation_number].id <= 27 ?
+                                                    ` The majority of workers in this occupation hold at least a college (bachelor’s) degree. ` :
+                                                    mockData.occupations[occupation_number].id >= 31 ?
+                                                        ` The majority of workers in this occupation have less than a college (bachelor’s) degree. ` :
+                                                        ` A college (bachelor’s) degree is the most prevalent credential among workers in this occupation. `
+                                                }
+                                                Workers typically study <strong>{listFormatter.format(mockData.occupations[occupation_number].major)}</strong>.
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </p> */}
+                            {/* {(selectedItem.occupation).map(occupation_number => {
+                                return (
+                                    <li >
+                                        Workers in the {mockData.occupations[occupation_number].name} occupations tend to study <strong>{mockData.occupations[occupation_number].major.join(', ')}</strong>.
+                                    </li>
+                                )
+                            })} */}
+
+                        </div>
+                    </div>
+                )
+            }
             {ranked && (
                 <div
                     style={{
@@ -903,7 +1140,7 @@ function AIExposureVisualization() {
                     }}
                 >
                     <button
-                        onClick={handleNext}
+                        onClick={() => handleNext(1,true)}
                         style={{
                             cursor: 'pointer',
                             float: 'right',
@@ -922,7 +1159,7 @@ function AIExposureVisualization() {
                 >
                     <div>
                         <button
-                            onClick={handleBack}
+                            onClick={() => handleBack(2,false,true)}
                             style={{
                                 cursor: 'pointer',
                                 float: 'left'
@@ -932,19 +1169,49 @@ function AIExposureVisualization() {
                         </button>
                     </div>
                     <div>
-                        <button
-                            onClick={handleEnd}
-                            style={{
-                                cursor: 'pointer',
-                                float: 'right'
-                            }}
-                        >
-                            End
-                        </button>
+                        {showTop && (
+                            <button
+                                 onClick={() => handleNext(2,false)}
+                                style={{
+                                    cursor: 'pointer',
+                                    float: 'right'
+                                }}
+                            >
+                                Next
+                            </button>
+                        )}
                     </div>
                 </div>
             )}
-        </div >
+            {!showTop && !ranked && !showSearch && !showEnd && (
+                <div
+                    style={{
+                        paddingBottom: '20px'
+                    }}
+                >
+                    <div>
+                        <button
+                            onClick={() => handleBack(3,true,false)}
+                            style={{
+                                cursor: 'pointer',
+                                float: 'left'
+                            }}
+                        >
+                            Back
+                        </button>
+                    </div>
+                    <button
+                        onClick={handleEnd}
+                        style={{
+                            cursor: 'pointer',
+                            float: 'right'
+                        }}
+                    >
+                        End
+                    </button>
+                </div>
+            )}
+        </div>
     );
 
 }
